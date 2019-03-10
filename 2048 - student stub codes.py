@@ -1,4 +1,6 @@
-
+def game_over(gb):
+    # This function returns True if the game is over and False otherwise
+    print("Check game over")
 
 def shift_cells(cell_list):
     # always shift cell_list to the left (towards 0 index)
@@ -10,7 +12,78 @@ def shift_cells(cell_list):
 def play(gb, direction):
     print("Direction: ", direction)
     
-# test cases
+# test cases for game_over
+# make sure your code can pass these test cases
+
+gb=[[0,2,4,8],
+    [2,4,8,2],
+    [4,8,2,4],
+    [8,2,4,2]]
+print("Should be false: ", game_over(gb))
+
+gb=[[4,2,4,8],
+    [2,0,8,2],
+    [4,8,2,4],
+    [8,2,4,2]]
+print("Should be false: ", game_over(gb))
+
+gb=[[4,2,4,8],
+    [2,4,8,2],
+    [4,8,0,4],
+    [8,2,4,2]]
+print("Should be false: ", game_over(gb))
+
+gb=[[4,2,4,8],
+    [2,4,8,2],
+    [4,8,2,4],
+    [8,2,4,0]]
+print("Should be false: ", game_over(gb))
+
+gb=[[0,2,4,8],
+    [2,4,8,2],
+    [4,8,2,4],
+    [8,2,4,0]]
+print("Should be false: ", game_over(gb))
+
+gb=[[0,2,4,8],
+    [2,4,0,2],
+    [4,8,2,4],
+    [8,2,4,0]]
+print("Should be false: ", game_over(gb))
+
+gb=[[0,2,4,8],
+    [2,4,0,2],
+    [4,0,2,4],
+    [8,2,4,0]]
+print("Should be false: ", game_over(gb))
+
+
+gb=[[4,2,4,8],
+    [2,4,8,2],
+    [4,8,2,4],
+    [8,2,4,2]]
+print("Should be true: ", game_over(gb))
+
+gb=[[8,2,4,8],
+    [2,4,16,2],
+    [4,32,2,4],
+    [8,2,4,64]]
+print("Should be true: ", game_over(gb))
+
+gb=[[4,2,2,8],
+    [2,4,8,2],
+    [4,8,2,4],
+    [8,2,4,2]]
+print("Should be false: ", game_over(gb))
+
+gb=[[4,2,8,8],
+    [2,4,8,2],
+    [4,8,2,4],
+    [8,2,4,2]]
+print("Should be false: ", game_over(gb))
+
+    
+# test cases for shift_cells
 # make sure your code can pass these test cases
 
 sl=[0]*4
