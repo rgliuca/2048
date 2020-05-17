@@ -1,15 +1,24 @@
 import random
+import matrix_transpose
+
+
+
 
 column_sep=['|', '|', '|', '']
 line_sep=['-', '-', '-', '']
 num_choices=[4]+[2]*9
 cell_width=5
 
+
 def print_board(gb):
     for r in range(4):
         for c in range(4):
             print(str(gb[r][c]).center(cell_width) if gb[r][c] else " "*cell_width, end=column_sep[c])
         print("\n" + line_sep[r]*23)
+
+def place_new_value(gb):
+    # This function places a 2 or 4 into an empty cell in gb
+    pass
 
 def game_over(gb):
     # This function returns True if the game is over and False otherwise
@@ -45,6 +54,21 @@ def shift_cells(cell_list):
 # directions are: 0: up, 1: right, 2: down, 3: left
 def play(gb, direction):
     print("Direction: ", direction)
+
+    shifted=False
+    if direction=='left':
+        for row in range(4):
+            shifted = True if shift_cells(gb[row]) else shifted
+    elif direction=='right':
+        for row in range(4):
+            gb[row].reverse()
+            shifted = True if shift_cells(gb[row]) else shifted
+            gb[row].reverse()
+    else:
+        # transpose
+      pass   
+            
+        
     
 # test cases for game_over
 # make sure your code can pass these test cases
